@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laundry Dilla</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-800 text-white">
+
+<!-- LOGIN -->
+<div id="loginPage" class="h-screen relative overflow-hidden">
+
+  <img id="slider" class="absolute w-full h-full object-cover">
+  <div class="overlay"></div>
+
+  <div id="sliderText" class="slider-text"></div>
+
+  <div class="login-box">
+    <div class="login-card">
+      <h2 class="title">LaundryPro</h2>
+
+      <input id="user" placeholder="Username" class="input">
+      <input id="pass" type="password" placeholder="Password" class="input">
+
+      <button onclick="login()" class="btn-login">Login</button>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="app" class="hidden p-6">
+<h1 class="text-3xl font-bold mb-6">Dashboard Laundry</h1>
+
+<button onclick="logout()" class="btn-logout">Logout</button>
+
+<form onsubmit="return tambah()" class="form-box">
+<input id="nama" placeholder="Nama Customer" class="input2">
+<input id="alamat" placeholder="Alamat" class="input2">
+<input id="wa" placeholder="WhatsApp" class="input2">
+
+<select id="layanan" onchange="previewHarga()" class="input2">
+<option>Cuci Kering</option>
+<option>Setrika</option>
+<option>Express</option>
+</select>
+
+<select id="pengambilan" onchange="previewHarga()" class="input2">
+<option>Ambil di Tempat</option>
+<option>Antar ke Rumah</option>
+</select>
+
+<input id="berat" type="number" placeholder="Berat" class="input2" oninput="previewHarga()">
+
+<div>Estimasi: Rp <span id="preview">0</span></div>
+
+<button class="btn-submit">Tambah</button>
+</form>
+
+<table class="table">
+<thead>
+<tr>
+<th>ID</th><th>Nama</th><th>Alamat</th><th>WA</th>
+<th>Layanan</th><th>Pengambilan</th><th>Berat</th>
+<th>Harga</th><th>Status</th><th>Aksi</th>
+</tr>
+</thead>
+<tbody id="tabel"></tbody>
+</table>
+
+</div>
+
+<!-- JS -->
+<script src="script.js"></script>
+</body>
+</html>
